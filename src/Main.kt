@@ -1,7 +1,6 @@
 import java.util.concurrent.Future
 import java.util.concurrent.Callable
 import java.util.concurrent.Executors
-import kotlin.coroutines.cancellation.CancellationException
 
 //1.Создать поток при помощи наследования от интерфейса Runnable
 class MyRunnable : Runnable {
@@ -105,8 +104,6 @@ fun cancelAfterThreeResults() {
                     return@forEach
                 }
             }
-        } catch (e: CancellationException) {
-            println("Task was cancelled")
         } catch (e: Exception) {
             println("An error occurred: ${e.message}")
         }
